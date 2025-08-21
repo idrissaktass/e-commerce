@@ -1,0 +1,106 @@
+{
+  "ProductsPage": {
+    "title": "Ürünler"
+  },
+  "HomePage": {
+    "title": "Popüler Ürünler"
+  },
+  "ProductCard": {
+    "electronics": "Elektronik",
+    "jewelery": "Takı",
+    "men's clothing": "Erkek Giyim",
+    "women's clothing": "Kadın Giyim",
+    "addCart": "Sepete Ekle",
+
+    "Fjallraven - Foldsack No_ 1 Backpack, Fits 15 Laptops": "Fjallraven - Foldsack No. 1 Sırt Çantası, 15 Dizüstü Bilgisayara Uygun",
+    "Your perfect pack for everyday use and walks in the forest_ Stash your laptop (up to 15 inches) in the padded sleeve, your everyday":
+      "Günlük kullanım ve ormanda yürüyüşler için mükemmel sırt çantanız. Dizüstü bilgisayarınızı (15 inçe kadar) yastıklı bölmeye koyun, günlük kullanım için ideal.",
+
+    "Mens Casual Premium Slim Fit T-Shirts ": "Erkek Günlük Premium Slim Fit Tişörtler",
+    "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing_ And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans_ The Henley style round neckline includes a three-button placket_":
+      "Dar kalıp stil, kontrast raglan uzun kollu, üç düğmeli henley yaka, hafif ve yumuşak kumaş ile nefes alabilir ve rahat bir kullanım sağlar. Yuvarlak yakalı sağlam dikişli tişörtler, günlük moda ve sıkı beyzbol hayranları için dayanıklı ve iyi bir uyum sunar. Henley tarzı yuvarlak yaka üç düğmeli pat ile tamamlanır.",
+
+    "Mens Cotton Jacket": "Erkek Pamuklu Ceket",
+    "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors_ Good gift choice for you or your family member_ A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day_":
+      "İlkbahar/Sonbahar/Kış için harika dış giyim ceketleri, iş, yürüyüş, kamp, dağ/taş tırmanışı, bisiklet, seyahat veya diğer açık hava etkinlikleri için uygundur. Kendiniz veya aileniz için iyi bir hediye seçeneği. Şükran Günü veya Noel'de babanıza, eşinize veya oğlunuza verilebilecek sıcak bir armağan.",
+
+    "Mens Casual Slim Fit": "Erkek Günlük Slim Fit",
+    "The color could be slightly different between on the screen and in practice_ / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description_":
+      "Renk ekranda ve gerçekte biraz farklı görünebilir. / Lütfen beden ölçülerinin kişiden kişiye değiştiğini unutmayın, bu nedenle ürün açıklamasındaki detaylı beden bilgilerini inceleyiniz.",
+
+    "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet": "John Hardy Kadın Legends Naga Altın ve Gümüş Dragon Station Zincir Bileklik",
+    "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl_ Wear facing inward to be bestowed with love and abundance, or outward for protection_":
+      "Legends Koleksiyonumuzdan, Naga, okyanusun incisini koruyan efsanevi su ejderhasından ilham aldı. Aşk ve bolluk için içe doğru, koruma için dışa doğru takılabilir.",
+
+    "Solid Gold Petite Micropave ": "Masif Altın Küçük Micropave",
+    "Satisfaction Guaranteed_ Return or exchange any order within 30 days_Designed and sold by Hafeez Center in the United States_ Satisfaction Guaranteed_ Return or exchange any order within 30 days_":
+      "Memnuniyet Garantili. Herhangi bir siparişi 30 gün içinde iade edin veya değiştirin. ABD'de Hafeez Center tarafından tasarlanıp satılmıştır. Memnuniyet Garantili. Herhangi bir siparişi 30 gün içinde iade edin veya değiştirin.",
+
+    "White Gold Plated Princess": "Beyaz Altın Kaplama Prenses",
+    "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her_ Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day___":
+      "Klasik Tasarım Nişan Tektaş Elmas Yüzük. Nişan, Düğün, Yıldönümü, Sevgililer Günü için sevgilinizi şımartacak hediyeler.",
+
+    "Pierced Owl Rose Gold Plated Stainless Steel Double": "Delikli Baykuş Gül Altın Kaplama Paslanmaz Çelik Çift",
+    "Rose Gold Plated Double Flared Tunnel Plug Earrings_ Made of 316L Stainless Steel":
+      "Gül Altın Kaplama Çift Flared Tünel Küpe. 316L Paslanmaz Çelikten yapılmıştır.",
+
+    "WD 2TB Elements Portable External Hard Drive - USB 3_0 ": "WD 2TB Elements Taşınabilir Harici Sabit Disk - USB 3.0",
+    "USB 3_0 and USB 2_0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8_1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system":
+      "USB 3.0 ve USB 2.0 uyumlu, hızlı veri aktarımı sağlar. PC performansını artırır, yüksek kapasiteli depolama sunar. Windows 10, Windows 8.1, Windows 7 için NTFS formatlıdır; diğer işletim sistemleri için yeniden formatlama gerekebilir; uyumluluk kullanıcı donanım yapılandırmasına göre değişebilir.",
+
+    "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s": "SanDisk SSD PLUS 1TB Dahili SSD - SATA III 6 Gb/sn",
+    "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2_5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application_)":
+        "Daha hızlı önyükleme, kapatma, uygulama yükleme ve yanıt için kolay yükseltme (5400 RPM SATA 2,5” sabit diske kıyasla; Yayınlanmış teknik özelliklere ve PCMark Vantage puanlarını kullanan dahili kıyaslama testlerine dayanmaktadır) Seri yazma performansını artırarak tipik PC iş yükleri için idealdir Performans ve güvenilirliğin mükemmel dengesi 535 MB/sn/450 MB/sn'ye kadar okuma/yazma hızları (Dahili testlere dayanmaktadır; Performans, sürücü kapasitesine, ana cihaza, işletim sistemine ve uygulamaya bağlı olarak değişiklik gösterebilir)",
+    
+    "Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2_5": "Silicon Power 256GB SSD 3D NAND A55 SLC Önbellek Performans Artışı SATA III 2.5",
+    "3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance_ The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks_ Supports TRIM command, Garbage Collection technology, RAID, and ECC (Error Checking & Correction) to provide the optimized performance and enhanced reliability_":
+      "Yüksek aktarım hızları sunmak için 3D NAND flash kullanılmıştır. Daha hızlı önyükleme ve genel sistem performansını iyileştiren olağanüstü aktarım hızları. Gelişmiş SLC Önbellek Teknolojisi, performans artışı ve daha uzun kullanım ömrü sağlar. Ultrabook'lar ve ultra ince dizüstü bilgisayarlar için uygun 7 mm ince tasarım. Optimize edilmiş performans ve gelişmiş güvenilirlik sağlamak için TRIM komutunu, Çöp Toplama teknolojisini, RAID'i ve ECC'yi (Hata Denetimi ve Düzeltme) destekler.",
+
+    "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive": "WD 4TB Oyun Sürücüsü, Playstation 4 Taşınabilir Harici Sabit Disk ile Çalışır",
+    "Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty":
+      "PS4 oyun deneyiminizi genişletin, her yerde oynayın. Hızlı ve kolay kurulum. Yüksek kapasiteli şık tasarım. 3 yıl sınırlı üretici garantisi.",
+
+    "Acer SB220Q bi 21_5 inches Full HD (1920 x 1080) IPS Ultra-Thin": "Acer SB220Q bi 21.5 inç Full HD (1920 x 1080) IPS Ultra İnce",
+    "21_ 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology_ No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9_ Color Supported - 16_ 7 million colors_ Brightness - 250 nit Tilt angle -5 degree to 15 degree_ Horizontal viewing angle-178 degree_ Vertical viewing angle-178 degree 75 hertz":
+      "21,5 inç Full HD (1920 x 1080) geniş ekran IPS ekran ve Radeon Free Sync teknolojisi. VESA montajına uyumlu değil. Yenileme Hızı: 75 Hz - HDMI bağlantı noktası kullanılıyor. Sıfır çerçeve tasarımı | ultra ince | 4 ms tepki süresi | IPS panel. En boy oranı - 16:9. Desteklenen Renk - 16,7 milyon renk. Parlaklık - 250 nit. Eğim açısı -5 ila 15 derece. Yatay görüş açısı -178 derece. Dikey görüş açısı -178 derece, 75 hertz",
+
+    "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ": "Samsung 49 İnç CHG90 144Hz Kavisli Oyun Monitörü (LC49HG90DMNXZA) – Süper Ultra Geniş Ekran QLED",
+    "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag":
+        "49 İNÇ SÜPER ULTRA GENİŞ 32:9 KAVİSLİ OYUN MONİTÖRÜ, yan yana çift 27 inç ekran QUANTUM DOT (QLED) TEKNOLOJİSİ, HDR desteği ve fabrika kalibrasyonu, şaşırtıcı derecede gerçekçi ve doğru renk ve kontrast sağlar 144HZ YÜKSEK YENİLEME HIZI ve 1 ms ultra hızlı tepki süresi, hareket bulanıklığını ve gölgelenmeyi ortadan kaldırmak ve giriş gecikmesini azaltmak için çalışır",
+
+    "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats": "BIYLACLESEN Kadın 3'ü 1 Arada Snowboard Mont Kışlık Montlar",
+    "Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece_ Detachable Functional Liner: Skin Friendly, Lightweigt and Warm_Stand Collar Liner jacket, keep you warm in cold weather_ Zippered Pockets: 2 Zippered Hand Pockets, 2 Zippered Pockets on Chest (enough to keep cards or keys)and 1 Hidden Pocket Inside_Zippered Hand Pockets and Hidden Pocket keep your things secure_ Humanized Design: Adjustable and Detachable Hood and Adjustable cuff to prevent the wind and water,for a comfortable fit_ 3 in 1 Detachable Design provide more convenience, you can separate the coat and inner as needed, or wear it together_ It is suitable for different season and help you adapt to different climates":
+      "Not: Ceketler ABD standart bedendir. Lütfen her zamanki kıyafetiniz gibi bedeninizi seçin. Malzeme: %100 Polyester; Çıkarılabilir Astar Kumaş: Sıcak Polar. Çıkarılabilir Fonksiyonel Astar: Cilde Dost, Hafif ve Sıcak. Dik Yaka Astar ceket, soğuk havalarda sizi sıcak tutar. Fermuarlı Cepler: 2 Fermuarlı El Cebi, Göğüste 2 Fermuarlı Cep (kartlarınızı veya anahtarlarınızı koymak için yeterli) ve İçeride 1 Gizli Cep. Fermuarlı El Cepleri ve Gizli Cep eşyalarınızı güvende tutar. İnsancıl Tasarım: Ayarlanabilir ve Çıkarılabilir Kapüşon ve rüzgarı ve suyu önlemek için ayarlanabilir manşet, rahat bir uyum sağlar. 3'ü 1 arada Çıkarılabilir Tasarım daha fazla kolaylık sağlar, ceketi ve iç kısmı gerektiği gibi ayırabilir veya birlikte giyebilirsiniz. Farklı mevsimlere uygundur ve farklı iklimlere uyum sağlamanıza yardımcı olur.",
+
+    "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket": "Lock and Love Kadın Çıkarılabilir Kapüşonlu Suni Deri Motosiklet Montu",
+    "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON":
+        "%100 POLİÜRETAN (kabuk) %100 POLYESTER (astar) %75 POLYESTER %25 PAMUK (KAZAK), Stil ve konfor için suni deri malzeme / Ön tarafta 2 cep, 2'si Bir Arada Kapüşonlu kot tarzı suni deri ceket, Belde düğme detayı / Yanlarda detaylı dikiş, SADECE ELDE YIKAYIN / ÇAMAŞIR SUYU KULLANMAYIN / İPE KURUTUCUDA KURUTUCU / ÜTÜLEMEYİN",
+
+    "Rain Jacket Women Windbreaker Striped Climbing Raincoats": "Kadın Yağmurluk Rüzgarlık Çizgili Tırmanma Yağmurlukları",
+    "Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design_ Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it_Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look_":
+      "Seyahat veya günlük giyim için hafif mükemmel --- Kapüşonlu, ayarlanabilir bağcıklı bel tasarımına sahip uzun kollu. Önden düğmeli ve fermuarlı yağmurluk, tamamen çizgili. Astarlı ve Yağmurluğun 2 yan cebi var, her türlü eşyayı koymak için iyi bir boyutta, kalçaları kaplıyor ve kapüşonu cömert ama aşırıya kaçmıyor. Ayarlanabilir bağcıklı pamuklu astarlı kapüşon ona gerçek bir tarz görünümü kazandırıyor.",
+
+    "MBJ Women's Solid Short Sleeve Boat Neck V ": "MBJ Kadın Düz Kısa Kollu Tekne Yaka V Yaka",
+    "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem":
+      "%95 RAYON %5 SPANDEX, ABD'de Üretilmiştir veya İthal Edilmiştir, Ağartıcı Kullanmayın, Rahatlık için yüksek esnekliğe sahip hafif kumaş, Kol ve yakada nervürlü / Alt etekte çift dikiş",
+
+    "Opna Women's Short Sleeve Moisture": "Opna Kadın Kısa Kollu Nemlendirici",
+    "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort":
+      "%100 Polyester, Makinede yıkanabilir, %100 katyonik polyester interlok, Makinede yıkanabilir ve mükemmel uyum için önceden çektirilmiştir, Hafif, bol ve nemi uzaklaştıran kumaşla yüksek nefes alabilirlik, Rahat V yakalı ve daha ince bir kesime sahip yumuşak hafif kumaş, şık ve daha kadınsı bir silüet ve ekstra konfor sağlar",
+
+    "DANVOUY Womens T Shirt Casual Cotton Short": "DANVOUY Kadın Tişörtü Günlük Pamuklu Şort",
+    "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch_, Occasion: Casual/Office/Beach/School/Home/Street_ Season: Spring,Summer,Autumn,Winter_":
+      "%95 Pamuk, %5 Spandeks, Özellikler: Günlük, Kısa Kollu, Harfli Baskı, V Yaka, Moda Tişörtler, Kumaş yumuşaktır ve biraz esnektir., Kullanım Alanı: Günlük/Ofis/Plaj/Okul/Ev/Sokak. Mevsim: İlkbahar, Yaz, Sonbahar, Kış.",
+    
+    "Added to cart":"Sepete eklendi"
+    },
+    "Cart": {
+        "title": "Sepetin",
+        "empty" : "Sepetiniz Boş."
+    },
+    "Navbar": {
+        "home": "Ana Sayfa",
+        "products": "Ürünler",
+        "cart": "Sepet"
+    }
+}

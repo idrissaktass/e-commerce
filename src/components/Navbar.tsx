@@ -1,22 +1,29 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
+import { Link } from '@/i18n/navigation';
 import { usePathname } from "next/navigation"
+import { useTranslations } from "next-intl";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
-    const [isEnglish, setIsEnglish] = useState(true)
     const pathname = usePathname()
+    const isEnglish = pathname.startsWith("/en")
+    const t = useTranslations("Navbar");
+    const newPath = pathname.replace(/^\/(en|tr)/,'')
+
+    const switchLocale = (locale: string) => {
+        window.location.href = `/${locale}${newPath}`;
+    }
     
     return(
         <nav className="bg-slate-900 text-white px-6 h-18 md:h-14 flex items-center">
             <div className="container mx-auto flex items-center justify-between">
                 <div className="flex gap-8 items-center">
                     <div className="flex gap-2 h-14 mt-0.5">
-                        <button onClick={() => setIsEnglish(true)} 
+                        <button onClick={() => switchLocale("en")}
                             className={`cursor-pointer hover:border-b-slate-700 hover:border-b-1 ${isEnglish ? "" : "text-slate-400"}`}>EN</button>
-                        <button onClick={() => setIsEnglish(false)} 
+                        <button onClick={() => switchLocale("tr")}
                             className={`cursor-pointer hover:border-b-slate-700 hover:border-b-1 ${!isEnglish ? "" : "text-slate-400"}`}>TR</button>
                     </div>
                     <Link href="/" className="text-2xl font-bold">
@@ -25,19 +32,19 @@ export default function Navbar() {
                 </div>
                 <div className="hidden md:flex items-center gap-5 text-xl">
                     <Link href="/" className={`h-14 flex items-center px-4 ${
-                        pathname === "/" ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
+                        (newPath === "/" || newPath === "") ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
                     `}>
-                        Home
+                        {t("home")}
                     </Link>
                     <Link href="/products" className={`h-14 flex items-center px-4 ${
-                        pathname === "/products" ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
+                        newPath === "/products" ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
                     `}>
-                        Products
+                        {t("products")}
                     </Link>
                     <Link href="/cart" className={`h-14 gap-2 flex items-center px-4 ${
-                        pathname === "/cart" ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
+                        newPath === "/cart" ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
                     `}>
-                        <p>Cart</p>
+                        <p>{t("cart")}</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 128 128">
                             <path d="M45.3 81.2h78V43.7L35.9 25.4l-3.1-12.9-12.6-4.2c0-.2.1-.3.1-.5 0-4.3-3.5-7.8-7.8-7.8S4.7 3.5 4.7 7.8s3.5 7.8 7.8 7.8c1.8 0 3.4-.6 4.7-1.6l9.4 4.7L39 78l-12.5 9.4V103l5.7 7.1c-1.6 1.9-2.5 4.3-2.5 7 0 6 4.9 10.9 10.9 10.9s10.9-4.9 10.9-10.9-4.9-10.9-10.9-10.9c-.9 0-1.8.1-2.6.3l-2.1-3.4h65.6l3.6 6c-2.2 2-3.6 4.9-3.6 8.1 0 6 4.9 10.9 10.9 10.9s10.9-4.9 10.9-10.9-4.9-10.9-10.9-10.9h-.3l-1.3-3.1h12.5V97H32.8v-6.2l12.5-9.6zm0-6.3-4.6-21.4.6 3L59.8 58l3.8 17H45.3zm21.8 0-3.7-16.7 18.1 1.4 1.4 15.3H67.1zm18.8 0-1.4-15 17 1.3v13.7H85.9zm31.2-15.6v15.6h-14.5V61.5l12.5 1v-3.2l-12.5-1V44.4l12.5 2.4v12.5zM35.9 31.2l65.6 12.6V58l-17.3-1.4-1.5-16.4-3.1-.6 1.6 16.8-18.5-1.5-4.3-19.3-3.7-.7 4.4 19.7-18.5-1.5-4.7-21.9zm76.5 81.2c2.6 0 4.7 2.1 4.7 4.7s-2.1 4.7-4.7 4.7-4.7-2.1-4.7-4.7 2.1-4.7 4.7-4.7zm-71.8 0c2.6 0 4.7 2.1 4.7 4.7s-2.1 4.7-4.7 4.7-4.7-2.1-4.7-4.7 2.1-4.7 4.7-4.7z" id="icon_11_"/>
                         </svg>
@@ -61,21 +68,19 @@ export default function Navbar() {
                         </button>
                     <div className="flex flex-col mt-20 ">
                         <Link href="/" className={`flex items-center px-6 py-4 ${
-                            pathname === "/" ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
+                            (newPath === "/" || newPath === "") ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
                         `}>
-                            Home
+                            {t("home")}
                         </Link>
-                        <Link href="/" className={`flex items-center px-6  py-4 ${
-                            pathname === "/products" ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
+                        <Link href="/products" className={`flex items-center px-6  py-4 ${
+                            newPath === "/products" ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
                         `}>
-                            Products
+                            {t("products")}
                         </Link>
-                        <div className="flex gap-5 px-6  py-4 ">
-                            <button onClick={() => setIsEnglish(true)}>EN</button>
-                            <button onClick={() => setIsEnglish(false)}>TR</button>
-                        </div>
-                        <Link href="/cart" className="hover:border-b-slate-700 hover:border-b-1 flex items-center gap-2 px-6  py-4 ">     
-                            <p>Cart</p>                   
+                        <Link href="/cart" className={`flex items-center px-6  py-4 ${
+                            newPath === "/products" ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
+                        `}>     
+                            <p className="mr-2">{t("cart")}</p>                   
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 128 128" className=" hover:fill-gray-300">
                                 <path d="M45.3 81.2h78V43.7L35.9 25.4l-3.1-12.9-12.6-4.2c0-.2.1-.3.1-.5 0-4.3-3.5-7.8-7.8-7.8S4.7 3.5 4.7 7.8s3.5 7.8 7.8 7.8c1.8 0 3.4-.6 4.7-1.6l9.4 4.7L39 78l-12.5 9.4V103l5.7 7.1c-1.6 1.9-2.5 4.3-2.5 7 0 6 4.9 10.9 10.9 10.9s10.9-4.9 10.9-10.9-4.9-10.9-10.9-10.9c-.9 0-1.8.1-2.6.3l-2.1-3.4h65.6l3.6 6c-2.2 2-3.6 4.9-3.6 8.1 0 6 4.9 10.9 10.9 10.9s10.9-4.9 10.9-10.9-4.9-10.9-10.9-10.9h-.3l-1.3-3.1h12.5V97H32.8v-6.2l12.5-9.6zm0-6.3-4.6-21.4.6 3L59.8 58l3.8 17H45.3zm21.8 0-3.7-16.7 18.1 1.4 1.4 15.3H67.1zm18.8 0-1.4-15 17 1.3v13.7H85.9zm31.2-15.6v15.6h-14.5V61.5l12.5 1v-3.2l-12.5-1V44.4l12.5 2.4v12.5zM35.9 31.2l65.6 12.6V58l-17.3-1.4-1.5-16.4-3.1-.6 1.6 16.8-18.5-1.5-4.3-19.3-3.7-.7 4.4 19.7-18.5-1.5-4.7-21.9zm76.5 81.2c2.6 0 4.7 2.1 4.7 4.7s-2.1 4.7-4.7 4.7-4.7-2.1-4.7-4.7 2.1-4.7 4.7-4.7zm-71.8 0c2.6 0 4.7 2.1 4.7 4.7s-2.1 4.7-4.7 4.7-4.7-2.1-4.7-4.7 2.1-4.7 4.7-4.7z" id="icon_11_"/>
                             </svg>

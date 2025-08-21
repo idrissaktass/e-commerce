@@ -1,8 +1,10 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link";
+import { Link } from '@/i18n/navigation';
 import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { toRead } from "@/utils/helper";
 
 export type Product = {
     quantity: number;
@@ -20,6 +22,10 @@ type ProductCardProps = {
 
 export default function ProductCard({product}: ProductCardProps) {
     const [toast, setToast] = useState<string | null>(null);
+    const t = useTranslations("ProductCard");
+
+    const key = toRead(product.title)
+    const translatedTitle = t(key as keyof typeof t) || product.title;
 
     const handleAddToCart = (product: Product) => {
         const existingCart = JSON.parse(localStorage.getItem("cart") || "[]")
@@ -30,19 +36,14 @@ export default function ProductCard({product}: ProductCardProps) {
             existingCart.push({...product, quantity: 1});
         }
         localStorage.setItem("cart", JSON.stringify(existingCart));
-        setToast("Added to cart!");
+        setToast(t("Added to cart"));
         setTimeout(() => {
             setToast(null)
         }, 2000);
     }
 
     return(
-        <div className="relative">
-            {toast && (
-                <div className="fixed bottom-5 bg-green-600 text-white px-4 py-2 rounded-lg animate-fade-in-out z-100">
-                    {toast}
-                </div>
-            )}
+        <div>
             <Link href={`/products/${product.id}`} className="bg-gray-200 rounded-xl shadow-lg p-4 flex flex-col items-center border-3 border-slate-400
                 justify-center hover:shadow-xl text-center gap-3 relative hover:border-slate-300">
                 <div className="w-full h-50 flex items-center justify-center">
@@ -54,8 +55,8 @@ export default function ProductCard({product}: ProductCardProps) {
                         className="object-contain max-h-full"
                     />
                 </div>
-                <h2 className="text-lg text-slate-700 font-semibold truncate w-full">{product.title}</h2>
-                <p className="text-sm text-slate-400 absolute top-2 right-2">{product.category}</p>
+                <h2 className="text-lg text-slate-700 font-semibold truncate w-full">{translatedTitle}</h2>
+                <p className="text-sm text-slate-400 absolute top-2 right-2">{t(product.category)}</p>
                 <div className="container flex items-center gap-3 md:px-2 justify-end mt-3">
                     <p className="text-green-600 font-bold">${product.price}</p>
                     <button className="text-green-600 font-semibold border-2 border-green-600 hover:shadow hover:border-green-500
@@ -71,8 +72,13 @@ export default function ProductCard({product}: ProductCardProps) {
                                 4.7-4.7-2.1-4.7-4.7 2.1-4.7 4.7-4.7zm-71.8 0c2.6 0 4.7 2.1 4.7 4.7s-2.1 4.7-4.7 4.7-4.7-2.1-4.7-4.7 2.1-4.7 4.7-4.7z" 
                                 id="icon_11_"/>
                         </svg>
-                        Add to cart
+                        {t("addCart")}
                     </button>
+                    {toast && (
+                        <div className="absolute top-full right-6 mt-2 bg-green-100 text-green-600 px-4 py-2 rounded-lg animate-fade-in-out z-100">
+                            {toast}
+                        </div>
+                    )}
                 </div>
             </Link>
         </div>

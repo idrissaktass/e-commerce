@@ -5,6 +5,8 @@ import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { Product } from "@/components/ProductCard";
+import { useTranslations } from "next-intl";
+import { toRead } from "@/utils/helper";
 
 export default function ProductDetail() {
     const [product, setProduct] = useState<Product | null>(null);
@@ -12,6 +14,7 @@ export default function ProductDetail() {
     const params = useParams()
     const {id} = params;
     const [toast, setToast] = useState<string | null>(null);
+    const t = useTranslations("ProductCard");
 
     useEffect(() => {
         if (!id) return;
@@ -34,7 +37,7 @@ export default function ProductDetail() {
             existingCart.push({...product, quantity: 1});
         }
         localStorage.setItem("cart", JSON.stringify(existingCart));
-        setToast("Added to cart!");
+        setToast(t("Added to cart"));
         setTimeout(() => {
             setToast(null)
         }, 2000);
@@ -61,16 +64,15 @@ export default function ProductDetail() {
             </div>
         )
     }
+    const key = toRead(product.title)
+    const keyDesc = toRead(product.description)
+    const translatedTitle = t(key as keyof typeof t) || product.title;
+    const translatedDesc = t(keyDesc as keyof typeof t) || product.description;
 
     return (
         <div className="min-h-screen">
             <Navbar/>
             <div className="flex justify-center relative">
-                {toast && (
-                    <div className="fixed bottom-5 bg-green-600 text-white px-4 py-2 rounded-lg animate-fade-in-out z-100">
-                        {toast}
-                    </div>
-                )}
                 <div className="p-6 flex flex-col lg:items-center lg:flex-row gap-10 bg-gray-200 rounded-xl shadow-lg
                     my-15 mx-2 md:mx-10 relative border-3 border-slate-400 w-full max-w-[1000px]">
                     <div className="flex-1 flex items-center justify-center h-100">
@@ -83,10 +85,10 @@ export default function ProductDetail() {
                         />    
                     </div>   
                     <div className="flex-1 flex flex-col gap-6 mt-10">
-                        <h1 className="text-2xl font-bold mb-6 text-slate-700">{product.title}</h1>
-                        <p className="text-slate-400 absolute top-3 right-3">{product.category}</p>
-                        <p className="text-slate-700">{product.description}</p>
-                        <div className="container flex items-center gap-3 md:px-2 justify-end mt-3">
+                        <h1 className="text-2xl font-bold mb-6 text-slate-700">{translatedTitle}</h1>
+                        <p className="text-slate-400 absolute top-3 right-3">{t(product.category)}</p>
+                        <p className="text-slate-700">{translatedDesc}</p>
+                        <div className="container flex items-center gap-3 md:px-2 justify-end mt-3 relative">
                             <p className="text-green-600 font-bold text-xl">${product.price}</p>
                             <button className="text-green-600 font-semibold border-2 border-green-600 hover:shadow hover:border-green-500
                                 py-1 px-2 rounded-lg flex gap-3 items-center cursor-pointer" 
@@ -101,8 +103,13 @@ export default function ProductDetail() {
                                         4.7-4.7-2.1-4.7-4.7 2.1-4.7 4.7-4.7zm-71.8 0c2.6 0 4.7 2.1 4.7 4.7s-2.1 4.7-4.7 4.7-4.7-2.1-4.7-4.7 2.1-4.7 4.7-4.7z" 
                                         id="icon_11_"/>
                                 </svg>
-                                Add to cart
+                                {t("addCart")}
                             </button>
+                            {toast && (
+                                <div className="absolute top-full right-2 mt-2 bg-green-100 text-green-600 px-4 py-2 rounded-lg animate-fade-in-out z-100">
+                                    {toast}
+                                </div>
+                            )}
                         </div>
                     </div>             
                 </div>
