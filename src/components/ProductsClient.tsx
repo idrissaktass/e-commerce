@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import ProductCard from "./ProductCard"
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
@@ -27,17 +27,17 @@ export default function ProductsClient({ products }: {products:Product[]}) {
 
     const categories = ["All Products", ...new Set(products.map((p) => p.category))];
 
-    const filteredProducts = products.filter((p) => {
+    const filteredProducts = useMemo(() => products.filter((p) => {
         const priceMatch = p.price >= minPrice && p.price <= maxPrice;
         const categoryMatch = selectedCategory === "All Products" || p.category === selectedCategory;
         return priceMatch && categoryMatch;
-    })
+    }), [products, minPrice, maxPrice, selectedCategory])
 
-    const sortedProducts = [...filteredProducts].sort((a,b) => {
+    const sortedProducts = useMemo(() => [...filteredProducts].sort((a,b) => {
         if(sortOrder === "asc") return a.price - b.price;
         if(sortOrder === "desc") return b.price - a.price;
         return 0;
-    })
+    }), [filteredProducts, sortOrder])
 
     return (
         <div>

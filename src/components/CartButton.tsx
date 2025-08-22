@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import { Product } from "@/lib/products"
 import { useTranslations } from "next-intl";
 
@@ -12,7 +12,7 @@ export default function CartButton({ product}:Props) {
     const [toast, setToast] = useState<string | null>(null);
     const t = useTranslations("ProductCard");
 
-    const handleAddToCart = (product: Product) => {
+    const handleAddToCart = useCallback((product: Product) => {
         const existingCart = JSON.parse(localStorage.getItem("cart") || "[]")
         const existingItemIndex = existingCart.findIndex((item: Product) => item.id === product.id);
         if(existingItemIndex !== -1) {
@@ -25,7 +25,8 @@ export default function CartButton({ product}:Props) {
         setTimeout(() => {
             setToast(null)
         }, 2000);
-    }
+    }, [t])
+    
     return (
         <div className="relative">
             <button className="text-green-600 font-semibold border-2 border-green-600 hover:shadow hover:border-green-500

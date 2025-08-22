@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { toRead } from "@/utils/helper";
 import CartButton from "./CartButton";
 import { usePathname } from "next/navigation";
+import { useMemo } from "react";
 
 export type Product = {
     quantity: number;
@@ -27,8 +28,11 @@ export default function ProductCard({product}: ProductCardProps) {
 
     const t = !isEnglish ? useTranslations("ProductCard") : (key:string) => key;
 
-    const key = !isEnglish && toRead(product.title)
-    const translatedTitle = t(key as keyof typeof t) || product.title;
+    const translatedTitle = useMemo(() => {
+        if(isEnglish) return product.title;
+        const key = toRead(product.title)
+        return t(key as keyof typeof t) || product.title;
+    }, [product.title, t, isEnglish])
 
     return(
         <div>
@@ -41,6 +45,7 @@ export default function ProductCard({product}: ProductCardProps) {
                         width={200}
                         height={200}
                         className="object-contain max-h-full"
+                        loading="lazy"
                     />
                 </div>
                 <h2 className="text-lg text-slate-700 font-semibold truncate w-full">{isEnglish ? product.title : translatedTitle}</h2>

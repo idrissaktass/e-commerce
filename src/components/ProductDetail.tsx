@@ -7,6 +7,7 @@ import { toRead } from "@/utils/helper";
 import CartButton from "./CartButton";
 import { usePathname } from "next/navigation";
 import { Product } from "@/lib/products";
+import { useMemo } from "react";
 
 type ProductDetailProps = {
     product: Product;
@@ -18,10 +19,17 @@ export default function ProductDetail({product}: ProductDetailProps) {
 
     const t = !isEnglish ? useTranslations("ProductCard") : (key:string) => key;
 
-    const key = !isEnglish && toRead(product.title)
-    const translatedTitle = t(key as keyof typeof t) || product.title;
-    const keyDesc = !isEnglish && toRead(product.description)
-    const translatedDesc = t(keyDesc as keyof typeof t) || product.description;
+    const translatedTitle = useMemo(() => {
+        if(isEnglish) return product.title;
+        const key = toRead(product.title)
+        return t(key as keyof typeof t) || product.title;
+    }, [product.title, t, isEnglish])
+
+    const translatedDesc = useMemo(() => {
+        if(isEnglish) return product.description;
+        const key = toRead(product.description)
+        return t(key as keyof typeof t) || product.description;
+    }, [product.description, t, isEnglish])
 
     return(
         <div className="flex justify-center relative">
@@ -34,6 +42,7 @@ export default function ProductDetail({product}: ProductDetailProps) {
                         width={400}
                         height={400}
                         className="object-contain max-h-full w-[300px] h-[300px] md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[400px]"
+                        loading="lazy"
                     />    
                 </div>   
                 <div className="flex-1 flex flex-col">

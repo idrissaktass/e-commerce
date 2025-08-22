@@ -29,10 +29,10 @@ export async function generateMetadata({params}: {params: PageProps["params"]}) 
     const description = isEnglish ? product!.description : tProduct(toRead(product!.description) as keyof typeof tProduct) || product?.description;
 
     return {
-        title: title,
+        title: `${title} - MyShop`,
         description: description,
         openGraph: {
-            title: title,
+            title: `${title} - MyShop`,
             description:description,
             url: "http://localhost:3000",
             siteName: "MyShop",
@@ -40,7 +40,7 @@ export async function generateMetadata({params}: {params: PageProps["params"]}) 
         },
         twitter: {
             card: "product",
-            title: title,
+            title: `${title} - MyShop`,
             description: description
         },
     }

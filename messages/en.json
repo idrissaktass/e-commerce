@@ -13,7 +13,8 @@
 
     "Cart": {
         "Your cart": "Your Cart",
-        "Cart is empty": "Your Cart is empty."
+        "Cart is empty": "Your Cart is empty.",
+        "Cart": "Sepet"
     },
     "Navbar": {
         "home": "Home",

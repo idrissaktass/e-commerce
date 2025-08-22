@@ -96,7 +96,9 @@
   },
   "Cart": {
     "Your cart": "Sepetin",
-    "Cart is empty" : "Sepetiniz Boş."
+    "Cart is empty" : "Sepetiniz Boş.",
+    "Products in cart": "Sepetteki Ürünler",
+    "Cart": "Sepet"
   },
   "Navbar": {
     "home": "Ana Sayfa",

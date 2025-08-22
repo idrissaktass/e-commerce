@@ -1,12 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { Product } from "@/lib/products"
 import Image from "next/image"
 import { Link } from "@/i18n/navigation"
 import { toRead } from "@/utils/helper"
 import { useTranslations } from "next-intl"
 import { usePathname } from "next/navigation";
+import Head from "next/head";
 
 type Props = {
     initialItems: Product[];
@@ -21,10 +22,20 @@ export default function CartList({ initialItems }: Props) {
     const tCart = !isEnglish ? useTranslations("Cart") : (key:string) => key;;
 
     useEffect(() => {
-        const storedCart = localStorage.getItem("cart");
+        const storedCart: Product[] = JSON.parse(localStorage.getItem("cart") || "[]");
         if(storedCart) {
-            setCartItems(JSON.parse(storedCart));
+            setCartItems(storedCart);
             setLoading(false);
+                  // Translated titles
+            const translatedTitles = storedCart.map((item:any) => {
+                const key = toRead(item.title);
+                return isEnglish ? item.title : t(key as keyof typeof t) || item.title;
+            });
+            document.title = `${tCart("Cart")} - MyShop`;
+            const metaDesc = document.querySelector("meta[name='description']");
+            if (metaDesc) {
+                metaDesc.setAttribute("content", `${tCart("Products in cart")}: ${translatedTitles.join(" | ")}`);
+            }
         } else{
             setCartItems(initialItems);
             localStorage.setItem("cart", JSON.stringify(initialItems));
@@ -32,17 +43,17 @@ export default function CartList({ initialItems }: Props) {
         }
     }, [initialItems])
 
-    const saveCart = (items: Product[]) => {
+    const saveCart = useCallback((items: Product[]) => {
         setCartItems(items);
         localStorage.setItem("cart", JSON.stringify(items));
-    }
+    }, [])
 
-    const handleRemove = (id:number) => {
+    const handleRemove = useCallback((id:number) => {
         const updatedCart = cartItems.filter(item => item.id !== id);
         saveCart(updatedCart);
-    }
+    }, [cartItems, saveCart])
 
-    const handleChange = (id: number, delta: number) => {
+    const handleChange = useCallback((id: number, delta: number) => {
         const updatedCart = cartItems.map(item => {
             if(item.id === id) {
                 const newQuantity = (item.quantity || 1) + delta;
@@ -51,7 +62,7 @@ export default function CartList({ initialItems }: Props) {
             return item;
         });
         saveCart(updatedCart);
-    }
+    }, [cartItems, saveCart])
 
     if(loading) {
         return(
@@ -79,7 +90,7 @@ export default function CartList({ initialItems }: Props) {
                     return (
                         <div key={item.id} className="flex items-center gap-5 bg-gray-100 p-4 rounded shadow-md">
                             <Link href={`/products/${item.id}`}  className="h-20 flex items-center justify-center">
-                                <Image src={item.image} alt={item.title} width={100} height={100} className="object-contain max-h-full"/>
+                                <Image src={item.image} alt={item.title} loading="lazy" width={100} height={100} className="object-contain max-h-full"/>
                             </Link>                        
                             <div className="flex-1">
                                 <Link href={`/products/${item.id}`}>

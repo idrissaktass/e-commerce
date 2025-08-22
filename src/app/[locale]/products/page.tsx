@@ -15,13 +15,14 @@ export async function generateMetadata({params}: {params: Promise<{ locale:strin
     const products = await getProducts();
 
     const productTitles = products.map(p => isEnglish ? p.title : tProduct(toRead(p.title) as keyof typeof tProduct) || p.title)
-    const description = isEnglish ? "Popular products on MyShop" : "MyShop popüler ürünler"
-
+    const title = isEnglish ? "Products - MyShop" : "Ürünler - MyShop"
+    const description = isEnglish ? `Popular products - MyShop: ${productTitles.join(" | ")}` : `Popüler ürünler - MyShop: ${productTitles.join(" | ")}`
+    
     return {
-        title: productTitles.join(" | "),
+        title: title,
         description: description,
         openGraph: {
-            title: productTitles.join(" | "),
+            title: title,
             description:description,
             url: "http://localhost:3000",
             siteName: "MyShop",
@@ -29,7 +30,7 @@ export async function generateMetadata({params}: {params: Promise<{ locale:strin
         },
         twitter: {
             card: "product",
-            title: productTitles.join(" | "),
+            title: title,
             description: description
         },
     }
