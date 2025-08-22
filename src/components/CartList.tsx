@@ -1,11 +1,12 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Product } from "@/lib/products"
 import Image from "next/image"
 import { Link } from "@/i18n/navigation"
 import { toRead } from "@/utils/helper"
 import { useTranslations } from "next-intl"
+import { usePathname } from "next/navigation";
 
 type Props = {
     initialItems: Product[];
@@ -13,9 +14,23 @@ type Props = {
 
 export default function CartList({ initialItems }: Props) {
     const [cartItems, setCartItems] = useState<Product[]>(initialItems);
+    const [loading, setLoading] = useState(true)
+    const pathname = usePathname();
+    const isEnglish = pathname.startsWith("/en")
+    const t = !isEnglish ? useTranslations("ProductCard") : (key:string) => key;
+    const tCart = !isEnglish ? useTranslations("Cart") : (key:string) => key;;
 
-    const t = useTranslations("ProductCard");
-    const tCart = useTranslations("Cart");
+    useEffect(() => {
+        const storedCart = localStorage.getItem("cart");
+        if(storedCart) {
+            setCartItems(JSON.parse(storedCart));
+            setLoading(false);
+        } else{
+            setCartItems(initialItems);
+            localStorage.setItem("cart", JSON.stringify(initialItems));
+            setLoading(false);
+        }
+    }, [initialItems])
 
     const saveCart = (items: Product[]) => {
         setCartItems(items);
@@ -38,17 +53,25 @@ export default function CartList({ initialItems }: Props) {
         saveCart(updatedCart);
     }
 
+    if(loading) {
+        return(
+        <div className="flex items-center justify-center h-screen">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid"></div>
+        </div>
+        )
+    }
+
     if(cartItems.length === 0) {
         return(
             <div className="min-h-screen">
-                <p className="p-10 text-center">{tCart("empty")}</p>
+                <p className="p-10 text-center">{tCart("Cart is empty")}</p>
             </div>
         )
     }
 
     return(
         <div className="py-10 px-2 sm-px-10 flex flex-col justify-center items-center">
-            <h1 className="text-2xl font-bold mb-6">{tCart("title")}</h1>
+            <h1 className="text-2xl font-bold mb-6">{tCart("Your cart")}</h1>
             <div className="flex flex-col gap-5  w-full max-w-[1000px]">
                 {cartItems.map(item => {
                     const key = toRead(item.title)
@@ -60,7 +83,7 @@ export default function CartList({ initialItems }: Props) {
                             </Link>                        
                             <div className="flex-1">
                                 <Link href={`/products/${item.id}`}>
-                                    <h2 className="font-semibold text-slate-700 mb-1">{translatedTitle}</h2>
+                                    <h2 className="font-semibold text-slate-700 mb-1">{isEnglish ? item.title : translatedTitle}</h2>
                                 </Link> 
                                 <p className="text-green-600 font-bold mb-1">${item.price * (item.quantity || 1)}</p>
                                 <div className="flex items-center gap-2">

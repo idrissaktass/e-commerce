@@ -3,7 +3,7 @@
 import { useState } from "react"
 import ProductCard from "./ProductCard"
 import { useTranslations } from "next-intl";
-
+import { usePathname } from "next/navigation";
 type Product = {
     id: number,
     title: string,
@@ -16,17 +16,20 @@ type Product = {
 
 export default function ProductsClient({ products }: {products:Product[]}) {
     const [sortOrder, setSortOrder ] = useState<"asc" | "desc" | "default">("default")
-    const t = useTranslations("ProductsClient");
     const [minPrice, setMinPrice] = useState<number>(0)
     const [maxPrice, setMaxPrice] = useState<number>(1000)
-    const [selectedCategory, setSelectedCategory] = useState<string>("all")
-    const tCard = useTranslations("ProductCard");
+    const [selectedCategory, setSelectedCategory] = useState<string>("All Products")
+    const pathname = usePathname();
+    const isEnglish = pathname.startsWith("/en")
 
-    const categories = ["all", ...new Set(products.map((p) => p.category))];
+    const t = !isEnglish ? useTranslations("ProductsClient") : (key:string) => key;
+    const tCard = !isEnglish ? useTranslations("ProductCard") : (key:string) => key;;
+
+    const categories = ["All Products", ...new Set(products.map((p) => p.category))];
 
     const filteredProducts = products.filter((p) => {
         const priceMatch = p.price >= minPrice && p.price <= maxPrice;
-        const categoryMatch = selectedCategory === "all" || p.category === selectedCategory;
+        const categoryMatch = selectedCategory === "All Products" || p.category === selectedCategory;
         return priceMatch && categoryMatch;
     })
 
@@ -41,9 +44,9 @@ export default function ProductsClient({ products }: {products:Product[]}) {
             <div className="mb-6 flex flex-col sm:flex-row gap-4">
                 <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value as "asc" | "desc" | "default")} 
                     className="border rounded p-2 bg-slate-900 cursor-pointer">
-                        <option value={"default"} className="bg-slate-900">{t("default")}</option>
-                        <option value={"asc"} className="bg-slate-900">{t("asc")}</option>
-                        <option value={"desc"} className="bg-slate-900">{t("desc")}</option>
+                        <option value={"default"} className="bg-slate-900">{t("Default sorting")}</option>
+                        <option value={"asc"} className="bg-slate-900">{t("Price ascending")}</option>
+                        <option value={"desc"} className="bg-slate-900">{t("Price descending")}</option>
                 </select>
                 <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}
                     className="border rounded p-2 bg-slate-900 cursor-pointer">
@@ -52,7 +55,7 @@ export default function ProductsClient({ products }: {products:Product[]}) {
                         ))}
                 </select>
                 <div className="flex items-center justify-center sm:justify-normal gap-2">
-                    <p>{t("range")}</p>
+                    <p>{t("Price:")}</p>
                     <input type="number" value={minPrice} onChange={(e) => (setMinPrice(Number(e.target.value)))}
                         className="w-22 border rounded p-2 bg-slate-900" placeholder="Min"/>
                         <p>-</p>

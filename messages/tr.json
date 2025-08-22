@@ -11,7 +11,7 @@
     "men's clothing": "Erkek Giyim",
     "women's clothing": "Kadın Giyim",
     "addCart": "Sepete Ekle",
-    "all": "Tüm Ürünler",
+    "All Products": "Tüm Ürünler",
     "Fjallraven - Foldsack No_ 1 Backpack, Fits 15 Laptops": "Fjallraven - Foldsack No. 1 Sırt Çantası, 15 Dizüstü Bilgisayara Uygun",
     "Your perfect pack for everyday use and walks in the forest_ Stash your laptop (up to 15 inches) in the padded sleeve, your everyday":
       "Günlük kullanım ve ormanda yürüyüşler için mükemmel sırt çantanız. Dizüstü bilgisayarınızı (15 inçe kadar) yastıklı bölmeye koyun, günlük kullanım için ideal.",
@@ -95,8 +95,8 @@
   "Added to cart":"Sepete eklendi"
   },
   "Cart": {
-    "title": "Sepetin",
-    "empty" : "Sepetiniz Boş."
+    "Your cart": "Sepetin",
+    "Cart is empty" : "Sepetiniz Boş."
   },
   "Navbar": {
     "home": "Ana Sayfa",
@@ -104,10 +104,10 @@
     "cart": "Sepet"
   },
   "ProductsClient" : {
-    "default": "Varsayılan sıralama",
-    "asc": "Fiyata göre artan",
-    "desc": "Fiyata göre azalan",
+    "Default sorting": "Varsayılan sıralama",
+    "Price ascending": "Fiyata göre artan",
+    "Price descending": "Fiyata göre azalan",
     "noResult": "Ürün bulunamadı.",
-    "range": "Fiyat:"
+    "Price:": "Fiyat:"
   }
-}
+} 
