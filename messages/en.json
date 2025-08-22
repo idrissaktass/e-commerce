@@ -11,6 +11,7 @@
     "men's clothing": "Men's Clothing",
     "women's clothing": "Women's Clothing",
     "addCart": "Add to Cart",
+    "all": "All products",
     "Added to cart":"Added to cart",
 
     "Fjallraven - Foldsack No_ 1 Backpack, Fits 15 Laptops": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -102,5 +103,12 @@
         "home": "Home",
         "products": "Products",
         "cart": "Cart"
+    },
+    "ProductsClient" : {
+        "default": "Default sorting",
+        "asc": "Price ascending",
+        "desc": "Price descending",
+        "noResult": "No result.",
+        "range": "Price:"
     }
 }
