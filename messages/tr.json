@@ -11,7 +11,7 @@
     "men's clothing": "Erkek Giyim",
     "women's clothing": "Kadın Giyim",
     "addCart": "Sepete Ekle",
-    "All Products": "Tüm Ürünler",
+    "allProducts": "Tüm Ürünler",
     "Fjallraven - Foldsack No_ 1 Backpack, Fits 15 Laptops": "Fjallraven - Foldsack No. 1 Sırt Çantası, 15 Dizüstü Bilgisayara Uygun",
     "Your perfect pack for everyday use and walks in the forest_ Stash your laptop (up to 15 inches) in the padded sleeve, your everyday":
       "Günlük kullanım ve ormanda yürüyüşler için mükemmel sırt çantanız. Dizüstü bilgisayarınızı (15 inçe kadar) yastıklı bölmeye koyun, günlük kullanım için ideal.",
@@ -92,13 +92,13 @@
     "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch_, Occasion: Casual/Office/Beach/School/Home/Street_ Season: Spring,Summer,Autumn,Winter_":
       "%95 Pamuk, %5 Spandeks, Özellikler: Günlük, Kısa Kollu, Harfli Baskı, V Yaka, Moda Tişörtler, Kumaş yumuşaktır ve biraz esnektir., Kullanım Alanı: Günlük/Ofis/Plaj/Okul/Ev/Sokak. Mevsim: İlkbahar, Yaz, Sonbahar, Kış.",
     
-  "Added to cart":"Sepete eklendi"
+  "addedToCart":"Sepete eklendi"
   },
   "Cart": {
-    "Your cart": "Sepetin",
-    "Cart is empty" : "Sepetiniz Boş.",
-    "Products in cart": "Sepetteki Ürünler",
-    "Cart": "Sepet"
+    "title": "Sepetin",
+    "empty" : "Sepetiniz Boş.",
+    "products": "Sepetteki Ürünler",
+    "cart": "Sepet"
   },
   "Navbar": {
     "home": "Ana Sayfa",
@@ -106,10 +106,10 @@
     "cart": "Sepet"
   },
   "ProductsClient" : {
-    "Default sorting": "Varsayılan sıralama",
-    "Price ascending": "Fiyata göre artan",
-    "Price descending": "Fiyata göre azalan",
+    "default": "Varsayılan sıralama",
+    "asc": "Fiyata göre artan",
+    "desc": "Fiyata göre azalan",
     "noResult": "Ürün bulunamadı.",
-    "Price:": "Fiyat:"
+    "price": "Fiyat:"
   }
 } 

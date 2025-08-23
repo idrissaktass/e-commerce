@@ -46,8 +46,8 @@ export default async function Home({ params }: { params: any}) {
     return (
         <div className="min-h-screen">
             <div className="p-6 sm:px-10 md:px-20 lg:px-10 xl:px-15 py-15">
-                <h1 className="text-2xl font-bold mb-6">{t("title")}</h1>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-3 xl:gap-5">
+                <h1 className="text-2xl font-bold mb-6 text-slate-200">{t("title")}</h1>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-3 xl:gap-5">
                     {posts.slice(0,4).map((post:any) => (
                         <ProductCard key={post.id} product={post}/>
                     ))}

@@ -17,7 +17,7 @@ export default function Navbar() {
     }
     
     return(
-        <nav className="bg-slate-900 text-white px-6 h-18 md:h-14 flex items-center">
+        <nav className="bg-slate-900 text-slate-300 px-6 h-18 md:h-14 flex items-center">
             <div className="container mx-auto flex items-center justify-between">
                 <div className="flex gap-8 items-center">
                     <div className="flex gap-2 h-14 mt-0.5">
@@ -32,17 +32,17 @@ export default function Navbar() {
                 </div>
                 <div className="hidden md:flex items-center gap-5 text-xl">
                     <Link href="/" className={`h-14 flex items-center px-4 ${
-                        (newPath === "/" || newPath === "") ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
+                        (newPath === "/" || newPath === "") ? "bg-slate-700 text-slate-300" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
                     `}>
                         {t("home")}
                     </Link>
                     <Link href="/products" className={`h-14 flex items-center px-4 ${
-                        newPath === "/products" ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
+                        newPath === "/products" ? "bg-slate-700 text-slate-300" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
                     `}>
                         {t("products")}
                     </Link>
                     <Link href="/cart" className={`h-14 gap-2 flex items-center px-4 ${
-                        newPath === "/cart" ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
+                        newPath === "/cart" ? "bg-slate-700 text-slate-300" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
                     `}>
                         <p>{t("cart")}</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 128 128">
@@ -63,22 +63,22 @@ export default function Navbar() {
                 </button>
                 {isOpen && (
                     <div className={`fixed top-0 right-0 h-full w-48 bg-slate-900 z-100 ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
-                        <button className="absolute top-4 right-4 text-white text-2xl cursor-pointer" onClick={() => setIsOpen(false)}>
+                        <button className="absolute top-4 right-4 text-slate-300 text-2xl cursor-pointer" onClick={() => setIsOpen(false)}>
                             X
                         </button>
                     <div className="flex flex-col mt-20 ">
-                        <Link href="/" className={`flex items-center px-6 py-4 ${
-                            (newPath === "/" || newPath === "") ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
+                        <Link href="/" onClick={() => setIsOpen(false)} className={`flex items-center px-6 py-4 ${
+                            (newPath === "/" || newPath === "") ? "bg-slate-700 text-slate-300" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
                         `}>
                             {t("home")}
                         </Link>
-                        <Link href="/products" className={`flex items-center px-6  py-4 ${
-                            newPath === "/products" ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
+                        <Link href="/products" onClick={() => setIsOpen(false)} className={`flex items-center px-6  py-4 ${
+                            newPath === "/products" ? "bg-slate-700 text-slate-300" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
                         `}>
                             {t("products")}
                         </Link>
-                        <Link href="/cart" className={`flex items-center px-6  py-4 ${
-                            newPath === "/products" ? "bg-slate-700 text-white" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
+                        <Link href="/cart" onClick={() => setIsOpen(false)} className={`flex items-center px-6  py-4 ${
+                            newPath === "/cart" ? "bg-slate-700 text-slate-300" : "text-gray-200 hover:border-b-slate-700 hover:border-b-1"}
                         `}>     
                             <p className="mr-2">{t("cart")}</p>                   
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 128 128" className=" hover:fill-gray-300">

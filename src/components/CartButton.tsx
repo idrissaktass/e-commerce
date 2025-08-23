@@ -21,15 +21,15 @@ export default function CartButton({ product}:Props) {
             existingCart.push({...product, quantity: 1});
         }
         localStorage.setItem("cart", JSON.stringify(existingCart));
-        setToast(t("Added to cart"));
+        setToast(t("addedToCart"));
         setTimeout(() => {
             setToast(null)
         }, 2000);
     }, [t])
-    
+
     return (
         <div className="relative">
-            <button className="text-green-600 font-semibold border-2 border-green-600 hover:shadow hover:border-green-500
+            <button className="text-green-600 font-semibold border-2 border-green-600 hover:shadow hover:bg-green-900 
                 py-1 px-2 rounded-lg flex gap-3 items-center cursor-pointer" 
                 onClick={(e) => {handleAddToCart(product); e.preventDefault(); e.stopPropagation(); } }>
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"  className="fill-green-600" viewBox="0 0 128 128">
@@ -45,7 +45,7 @@ export default function CartButton({ product}:Props) {
                 {t("addCart")}
             </button>
             {toast && (
-                <div className="absolute top-full right-2 mt-2 bg-green-100 text-green-600 px-4 py-2 rounded-lg animate-fade-in-out z-100">
+                <div className="absolute top-full right-2 mt-2 bg-green-300 text-green-800 px-4 py-2 rounded-lg animate-fade-in-out z-100">
                     {toast}
                 </div>
             )}

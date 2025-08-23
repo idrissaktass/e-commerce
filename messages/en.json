@@ -6,15 +6,19 @@
         "title": "Popular Products"
     },
     "ProductCard": {
-        "All Products": "All products",
-        "Added to cart":"Added to cart",
-        "addCart": "Add to cart"
+        "electronics": "Electronics",
+        "jewelery": "Jewelery",
+        "men's clothing": "Men's clothing",
+        "women's clothing": "Women's clothing",
+        "addedToCart":"Added to cart",
+        "addCart": "Add to cart",
+        "allProducts": "All Products"
     },
-
     "Cart": {
-        "Your cart": "Your Cart",
-        "Cart is empty": "Your Cart is empty.",
-        "Cart": "Sepet"
+        "title": "Your Cart",
+        "empty": "Your cart is empty.",
+        "cart": "Sepet",
+        "products": "Products in cart"
     },
     "Navbar": {
         "home": "Home",
@@ -22,10 +26,10 @@
         "cart": "Cart"
     },
     "ProductsClient" : {
-        "Default sorting": "Default sorting",
-        "Price ascending": "Price ascending",
-        "Price descending": "Price descending",
+        "default": "Default sorting",
+        "asc": "Price ascending",
+        "desc": "Price descending",
         "noResult": "No result.",
-        "Price:": "Price:"
+        "price": "Price:"
     }
 }
