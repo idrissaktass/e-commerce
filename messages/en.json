@@ -12,7 +12,8 @@
         "women's clothing": "Women's clothing",
         "addedToCart":"Added to cart",
         "addCart": "Add to cart",
-        "allProducts": "All Products"
+        "allProducts": "All Products",
+        "seeProduct": "See the product"
     },
     "Cart": {
         "title": "Your Cart",

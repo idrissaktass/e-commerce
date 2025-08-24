@@ -36,14 +36,16 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <NextIntlClientProvider>       
-          <Navbar/>
-          {children}
-          <Footer/>
-        </NextIntlClientProvider>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <div
+          className="min-h-screen bg-slate-900"
+        >
+          <NextIntlClientProvider>       
+            <Navbar/>
+            {children}
+            <Footer/>
+          </NextIntlClientProvider>
+        </div>
       </body>
     </html>
   );

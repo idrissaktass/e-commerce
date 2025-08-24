@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 
 export type Product = {
-    quantity: number;
+    quantity?: number;
     id: number;
     title: string;
     price: number;
@@ -19,8 +19,10 @@ export type Product = {
 }
 
 type ProductCardProps = {
-    product: Product;
-}
+  product: Product;
+  isHome?: boolean; // 🔑 optional prop
+};
+
 
 export default function ProductCard({product}: ProductCardProps) {
     const pathname = usePathname();

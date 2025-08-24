@@ -17,7 +17,7 @@ export default function Navbar() {
     }
     
     return(
-        <nav className="bg-slate-900 text-slate-300 px-6 h-18 md:h-14 flex items-center">
+        <nav className="bg-black text-slate-300 px-6 h-18 md:h-14 flex items-center shadow-lg">
             <div className="container mx-auto flex items-center justify-between">
                 <div className="flex gap-8 items-center">
                     <div className="flex gap-2 h-14 mt-0.5">
