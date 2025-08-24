@@ -23,7 +23,7 @@ export default function CartList({ initialItems }: Props) {
         const storedCart: Product[] = JSON.parse(localStorage.getItem("cart") || "[]");
         if(storedCart) {
             setCartItems(storedCart);
-            const translatedTitles = storedCart.map((item:any) => {
+            const translatedTitles = storedCart.map((item:Product) => {
                 const key = toRead(item.title);
                 return isEnglish ? item.title : t(key as keyof typeof t) || item.title;
             });

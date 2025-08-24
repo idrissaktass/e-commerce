@@ -8,10 +8,9 @@ import "swiper/css/pagination";
 import HomeCards from "@/components/HomeCards";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { Product } from "@/lib/products";
 
-type Props = {
-  posts: any[];
-};
+type Props = { posts: Product[] }
 
 export default function HomeSlider({ posts }: Props) {
     const tCard = useTranslations("ProductCard");
@@ -26,7 +25,7 @@ export default function HomeSlider({ posts }: Props) {
             autoplay={{ delay: 4000, disableOnInteraction: false }}
             className="w-full h-screen lg:h-[80vh]"
             >
-            {posts.map((post: any, i: number) => (
+            {posts.map((post: Product, i: number) => (
                 <SwiperSlide key={post.id} className="w-full h-full">
                 <HomeCards product={post} isHome />
                 </SwiperSlide>

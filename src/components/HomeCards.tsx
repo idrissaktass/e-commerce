@@ -44,7 +44,7 @@ export default function HomeCards({ product, isHome }: ProductCardProps) {
         text-slate-200 shadow-2xl`}
     >
       <div className="flex-1 flex flex-col justify-center items-center lg:items-baseline lg:justify-start mb-6 lg:mb-0">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 leading-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 leading-tight line-clamp-3">
           {isEnglish ? product.title : translatedTitle}
         </h2>
 
@@ -58,7 +58,7 @@ export default function HomeCards({ product, isHome }: ProductCardProps) {
             alt={product.title}
             width={400}
             height={400}
-            className="object-contain h-[250px] sm:h-[300px]"
+            className="object-contain h-[250px] sm:h-[300px] md:h-[250px]"
             loading="lazy"
           />
         </div>
