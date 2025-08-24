@@ -46,7 +46,7 @@ export async function generateMetadata({params}: {params: PageProps["params"]}) 
     }
 } 
 
-export default async function ProductDetailPage({ params }: PageProps) {
+export default async function ProductDetailPage({params}: {params: Promise<{ id: string }>}){
 
     const {id} = await params;
     let products: Product[] = await getProducts();
