@@ -48,7 +48,7 @@ export default function ProductCard({product}: ProductCardProps) {
                         alt={product.title}
                         width={200}
                         height={200}
-                        className="object-contain max-h-full"
+                        className="object-contain max-h-full h-[180px] md:h-[200px] w-auto sm:w-[200px]"
                         loading="lazy"
                     />
                 </div>
