@@ -11,8 +11,7 @@ type Params = {
 };
 
 export async function generateMetadata({ params }: { params: Params }) {
-    const resolvedParams = await params;
-    const locale = resolvedParams.locale;
+    const locale = params.locale;
     const isEnglish = locale === "en";
 
     const tProduct = !isEnglish ? await getTranslations({ locale, namespace: "ProductCard"}):(key:string) => key;
@@ -41,9 +40,9 @@ export async function generateMetadata({ params }: { params: Params }) {
         },
     }
 } 
+export default async function Home({ params }: { params: Params }) {
+    const locale = params.locale;
 
-export default async function Home({ params }: { params: Params}) {
-    const { locale } = await params;
 
     const t = await getTranslations({ locale, namespace: "HomePage"});
     const posts = await getProducts();
