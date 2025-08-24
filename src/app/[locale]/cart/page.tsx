@@ -6,7 +6,7 @@ type PageProps = {
   params: { locale: string }
 }
 
-export default async function CartPage({ params }: PageProps) {
+export default async function CartPage({ params }: { params: { locale: string } }) {
   
   return (
     <div className="min-h-screen">
