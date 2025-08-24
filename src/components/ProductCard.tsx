@@ -30,12 +30,12 @@ export default function ProductCard({product}: ProductCardProps) {
 
     const translationsHook = useTranslations("ProductCard");
 
-    const t = (key: string) => isEnglish ? key : translationsHook(key as any);
+    const t = (key: string) => isEnglish ? key : translationsHook(key);
 
     const translatedTitle = useMemo(() => {
         if(isEnglish) return product.title;
         const key = toRead(product.title)
-        return t(key as keyof typeof t) || product.title;
+        return t(key) || product.title;
     }, [product.title, t, isEnglish])
 
     return(
