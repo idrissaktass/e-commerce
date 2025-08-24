@@ -9,7 +9,7 @@ type Params = {
   locale: string;
 };
 
-export async function generateMetadata({ params }: { params: Params }) {
+export async function generateMetadata({ params }: { params: Promise<Params> }) {
     const resolvedParams = await params;
     const locale = resolvedParams.locale;
     const isEnglish = locale === "en";
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: { params: Params }) {
     }
 } 
 
-export default async function ProductsPage({ params }: { params: Params}) {
+export default async function ProductsPage({ params }: { params: Promise<Params> }) {
     const { locale } = await params;
 
     const t = await getTranslations({ locale, namespace: "ProductsPage"});

@@ -78,7 +78,7 @@ export default function CartList({ initialItems }: Props) {
                     const key = toRead(item.title)
                     const translatedTitle = t(key as keyof typeof t) || item.title;
                     return (
-                        <div key={item.id} className="flex items-center gap-5 bg-slate-800 p-4 rounded shadow-md border-slate-500 border-2">
+                        <div key={item.id} className="flex items-center gap-5 bg-slate-800 p-2 sm:p-4 rounded shadow-md border-slate-500 border-2">
                             <Link href={`/products/${item.id}`}  className="h-20 flex items-center justify-center">
                                 <Image src={item.image} alt={item.title} loading="lazy" width={100} height={100} className="object-contain max-h-full"/>
                             </Link>                        

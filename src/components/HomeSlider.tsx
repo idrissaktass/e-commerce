@@ -21,6 +21,7 @@ export default function HomeSlider({ posts }: Props) {
             spaceBetween={0}
             slidesPerView={1}
             navigation
+            speed={1300}
             pagination={{ clickable: true }}
             autoplay={{ delay: 4000, disableOnInteraction: false }}
             className="w-full h-screen lg:h-[80vh]"
