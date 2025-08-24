@@ -1,9 +1,40 @@
-import ProductCard from "@/components/ProductCard";
-import Navbar from "@/components/Navbar";
 import { getTranslations } from "next-intl/server";
 import { getProducts } from "@/lib/products";
+import ProductsClient from "@/components/ProductsClient";
+import { toRead } from "@/utils/helper";
 
 export const revalidate = 60;
+
+export async function generateMetadata({params}: {params: Promise<{ locale:string }>}) {
+    const resolvedParams = await params;
+    const locale = resolvedParams.locale;
+    const isEnglish = locale === "en";
+
+    const tProduct = !isEnglish ? await getTranslations({ locale, namespace: "ProductCard"}):(key:string) => key;
+    
+    const products = await getProducts();
+
+    const productTitles = products.map(p => isEnglish ? p.title : tProduct(toRead(p.title) as keyof typeof tProduct) || p.title)
+    const title = isEnglish ? "Products - MyShop" : "Ürünler - MyShop"
+    const description = isEnglish ? `Popular products - MyShop: ${productTitles.join(" | ")}` : `Popüler ürünler - MyShop: ${productTitles.join(" | ")}`
+    
+    return {
+        title: title,
+        description: description,
+        openGraph: {
+            title: title,
+            description:description,
+            url: "http://localhost:3000",
+            siteName: "MyShop",
+            type: "website"
+        },
+        twitter: {
+            card: "product",
+            title: title,
+            description: description
+        },
+    }
+} 
 
 export default async function ProductsPage({ params }: { params: any}) {
     const { locale } = await params;
@@ -13,14 +44,8 @@ export default async function ProductsPage({ params }: { params: any}) {
 
     return (
         <div className="min-h-screen">
-            <Navbar/>
             <div className="p-6 sm:px-10 md:px-20 lg:px-10 xl:px-15 py-15">
-                <h1 className="text-2xl font-bold mb-6">{t('title')}</h1>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-6 xl:gap-7">
-                    {products.map((product:any) => (
-                        <ProductCard key={product.id} product={product}/>
-                    ))}
-                </div>
+                <ProductsClient products={products}/>
             </div>
         </div>
     );
