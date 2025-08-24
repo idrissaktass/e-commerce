@@ -18,7 +18,7 @@ export default function CartList({ initialItems }: Props) {
     const isEnglish = pathname.startsWith("/en")
     const translationsHook = useTranslations("ProductCard");
 
-    const t = (key: string) => isEnglish ? key : translationsHook(key as any);
+    const t = (key: string) => isEnglish ? key : translationsHook(key);
 
     const tCart = useTranslations("Cart");
 
@@ -28,7 +28,7 @@ export default function CartList({ initialItems }: Props) {
             setCartItems(storedCart);
             const translatedTitles = storedCart.map((item:Product) => {
                 const key = toRead(item.title);
-                return isEnglish ? item.title : t(key as keyof typeof t) || item.title;
+                return isEnglish ? item.title : t(key) || item.title;
             });
             document.title = `${tCart("cart")} - MyShop`;
             const metaDesc = document.querySelector("meta[name='description']");
