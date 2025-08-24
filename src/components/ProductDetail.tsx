@@ -19,19 +19,24 @@ export default function ProductDetail({product}: ProductDetailProps) {
 
     const translationsHook = useTranslations("ProductCard");
 
-    const t = (key: string) => isEnglish ? key : translationsHook(key as any);
+    const t = (key: string) => isEnglish ? key : translationsHook(key);
 
     const translatedTitle = useMemo(() => {
         if(isEnglish) return product.title;
-        const key = toRead(product.title)
-        return t(key as keyof typeof t) || product.title;
-    }, [product.title, t, isEnglish])
+        const key = toRead(product.title);
+        return t(key) || product.title;
+    }, [product.title, t, isEnglish]);
 
     const translatedDesc = useMemo(() => {
         if(isEnglish) return product.description;
-        const key = toRead(product.description)
-        return t(key as keyof typeof t) || product.description;
-    }, [product.description, t, isEnglish])
+        const key = toRead(product.description);
+        return t(key) || product.description;
+    }, [product.description, t, isEnglish]);
+
+    const translatedCategory = useMemo(() => {
+        if(isEnglish) return product.category;
+        return t(product.category);
+    }, [product.category, t, isEnglish]);
 
     return(
         <div className="flex justify-center relative">
@@ -49,7 +54,7 @@ export default function ProductDetail({product}: ProductDetailProps) {
                 </div>   
                 <div className="flex-1 flex flex-col">
                     <h1 className="text-2xl font-bold mb-6 text-slate-300">{isEnglish ? product.title : translatedTitle}</h1>
-                    <p className="text-slate-500 absolute top-3 right-3">{isEnglish ? product.category : t(product.category)}</p>
+                    <p className="text-slate-500 absolute top-3 right-3">{translatedCategory}</p>
                     <p className="text-slate-400 mb-10">{isEnglish ? product.description : translatedDesc}</p>
                     <div className="container flex items-center gap-3 md:px-2 justify-end md:absolute bottom-5 right-5">
                         <p className="text-green-600 font-bold text-xl">${product.price}</p>
