@@ -5,11 +5,8 @@ import ProductDetail from "@/components/ProductDetail";
 
 export const revalidate = 60;
 
-type PageProps = {
-    params: { locale: string; id:string}
-}
 
-export async function generateMetadata({params}: {params: PageProps["params"]}) {
+export async function generateMetadata({params}: {params: Promise<{ id: string, locale: string }>}) {
     const {locale, id} = await params;
     const isEnglish = locale === "en";
 
