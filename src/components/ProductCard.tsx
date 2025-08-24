@@ -19,21 +19,21 @@ export type Product = {
 }
 
 type ProductCardProps = {
-  product: Product;
-  isHome?: boolean; // 🔑 optional prop
+    product: Product;
+    isHome?: boolean;
 };
-
 
 export default function ProductCard({product}: ProductCardProps) {
     const pathname = usePathname();
     const isEnglish = pathname.startsWith("/en")
 
-    const t = !isEnglish ? useTranslations("ProductCard") : (key:string) => key;
+    const translationsHook = useTranslations("ProductCard");
+    const t = (key: string) => isEnglish ? key : translationsHook(key);
 
     const translatedTitle = useMemo(() => {
         if(isEnglish) return product.title;
         const key = toRead(product.title)
-        return t(key as keyof typeof t) || product.title;
+        return t(key) || product.title;
     }, [product.title, t, isEnglish])
 
     return(
@@ -46,7 +46,7 @@ export default function ProductCard({product}: ProductCardProps) {
                         alt={product.title}
                         width={200}
                         height={200}
-                        className="object-contain max-h-full"
+                        className="object-contain max-h-full h-[180px] md:h-[200px] w-auto sm:w-[200px]"
                         loading="lazy"
                     />
                 </div>

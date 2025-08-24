@@ -6,7 +6,11 @@ import HomeSlider from "@/components/HomeSlider";
 
 export const revalidate = 60;
 
-export async function generateMetadata({params}: {params: Promise<{ locale:string }>}) {
+type Params = {
+  locale: string;
+};
+
+export async function generateMetadata({ params }: { params: Promise<Params> }) {
     const resolvedParams = await params;
     const locale = resolvedParams.locale;
     const isEnglish = locale === "en";
@@ -38,8 +42,9 @@ export async function generateMetadata({params}: {params: Promise<{ locale:strin
     }
 } 
 
-export default async function Home({ params }: { params: any}) {
-    const { locale } = await params;
+export default async function Home({ params }: { params: Promise<Params> }) {
+    const resolvedParams = await params;
+    const locale = resolvedParams.locale;
 
     const t = await getTranslations({ locale, namespace: "HomePage"});
     const posts = await getProducts();

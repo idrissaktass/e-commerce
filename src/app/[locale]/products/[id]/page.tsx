@@ -5,11 +5,7 @@ import ProductDetail from "@/components/ProductDetail";
 
 export const revalidate = 60;
 
-type PageProps = {
-    params: { locale: string; id:string}
-}
-
-export async function generateMetadata({params}: {params: PageProps["params"]}) {
+export async function generateMetadata({params}: {params: Promise<{ id: string, locale: string }>}) {
     const {locale, id} = await params;
     const isEnglish = locale === "en";
 
@@ -46,12 +42,11 @@ export async function generateMetadata({params}: {params: PageProps["params"]}) 
     }
 } 
 
-export default async function ProductDetailPage({ params }: PageProps) {
-
+export default async function ProductDetailPage({params}: {params: Promise<{ id: string }>}){
     const {id} = await params;
+    
     let products: Product[] = await getProducts();
     products = products.map((p) => ({...p, quantity: 1}));
-
     const product = products.find((p) => p.id === Number(id));
 
     if(!product){
@@ -63,7 +58,6 @@ export default async function ProductDetailPage({ params }: PageProps) {
             </div>
         )
     }
-
     return (
         <div className="min-h-screen">
             <ProductDetail product={product}/>

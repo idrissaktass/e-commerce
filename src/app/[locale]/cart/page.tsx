@@ -1,16 +1,15 @@
 import CartList from "@/components/CartList";
+import { Product } from "@/lib/products";
 
 export const revalidate = 60;
 
-type PageProps = {
-  params: { locale: string }
-}
+export default async function CartPage({ params }: { params: Promise<{ locale: string }> }) {
+  const resolvedParams = await params;
+  const locale = resolvedParams.locale;
 
-export default async function CartPage({ params }: PageProps) {
-  
   return (
     <div className="min-h-screen">
-      <CartList initialItems={[]}/>
+      <CartList initialItems={[] as Product[]}/>
     </div>
   );
 }

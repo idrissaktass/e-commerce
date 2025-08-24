@@ -16,16 +16,18 @@ export default function CartList({ initialItems }: Props) {
     const [cartItems, setCartItems] = useState<Product[]>(initialItems);
     const pathname = usePathname();
     const isEnglish = pathname.startsWith("/en")
-    const t = !isEnglish ? useTranslations("ProductCard") : (key:string) => key;
+    const translationsHook = useTranslations("ProductCard");
+
+    const t = (key: string) => isEnglish ? key : translationsHook(key);
     const tCart = useTranslations("Cart");
 
     useEffect(() => {
         const storedCart: Product[] = JSON.parse(localStorage.getItem("cart") || "[]");
         if(storedCart) {
             setCartItems(storedCart);
-            const translatedTitles = storedCart.map((item:any) => {
+            const translatedTitles = storedCart.map((item:Product) => {
                 const key = toRead(item.title);
-                return isEnglish ? item.title : t(key as keyof typeof t) || item.title;
+                return isEnglish ? item.title : t(key) || item.title;
             });
             document.title = `${tCart("cart")} - MyShop`;
             const metaDesc = document.querySelector("meta[name='description']");
@@ -75,7 +77,7 @@ export default function CartList({ initialItems }: Props) {
                     const key = toRead(item.title)
                     const translatedTitle = t(key as keyof typeof t) || item.title;
                     return (
-                        <div key={item.id} className="flex items-center gap-5 bg-slate-800 p-4 rounded shadow-md border-slate-500 border-2">
+                        <div key={item.id} className="flex items-center gap-5 bg-slate-800 p-2 sm:p-4 rounded shadow-md border-slate-500 border-2">
                             <Link href={`/products/${item.id}`}  className="h-20 flex items-center justify-center">
                                 <Image src={item.image} alt={item.title} loading="lazy" width={100} height={100} className="object-contain max-h-full"/>
                             </Link>                        

@@ -30,12 +30,11 @@ export default function HomeCards({ product, isHome }: ProductCardProps) {
     return t(product.category as keyof typeof t) || product.category;
   }, [product.category, t, isEnglish]);
   
-  
-    const translatedDesc = useMemo(() => {
-        if(isEnglish) return product.description;
-        const key = toRead(product.description)
-        return t(key as keyof typeof t) || product.description;
-    }, [product.description, t, isEnglish])
+  const translatedDesc = useMemo(() => {
+    if(isEnglish) return product.description;
+    const key = toRead(product.description)
+    return t(key as keyof typeof t) || product.description;
+  }, [product.description, t, isEnglish])
 
   return (
     <div
@@ -44,26 +43,23 @@ export default function HomeCards({ product, isHome }: ProductCardProps) {
         text-slate-200 shadow-2xl`}
     >
       <div className="flex-1 flex flex-col justify-center items-center lg:items-baseline lg:justify-start mb-6 lg:mb-0">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 leading-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 leading-tight line-clamp-3">
           {isEnglish ? product.title : translatedTitle}
         </h2>
-
         <p className="text-sm sm:text-base md:text-lg mb-2 lg:mb-6 text-slate-200 lg:hidden">
           {translatedCategory}
         </p>
-
         <div className="flex justify-center lg:hidden mb-4">
           <Image
             src={product.image}
             alt={product.title}
             width={400}
             height={400}
-            className="object-contain h-[250px] sm:h-[300px]"
+            className="object-contain h-[250px] sm:h-[300px] md:h-[250px]"
             loading="lazy"
           />
         </div>
-
-        <p className="text-base sm:text-lg md:text-xl mb-4 text-slate-300"> {isEnglish ? product.description : translatedDesc}</p>
+        <p className="text-base sm:text-lg md:text-xl mb-4 text-slate-300 line-clamp-5 md:line-clamp-none"> {isEnglish ? product.description : translatedDesc}</p>
         {/* <p className="text-2xl font-bold text-green-400">{`$${product.price}`}</p> */}
         <Link
         href={`/products/${product.id}`}
@@ -73,7 +69,6 @@ export default function HomeCards({ product, isHome }: ProductCardProps) {
         {t("seeProduct")}
         </Link>
       </div>
-
       <div className="hidden lg:flex flex-1 items-center justify-center h-full">
         <Image
           src={product.image}
@@ -84,7 +79,6 @@ export default function HomeCards({ product, isHome }: ProductCardProps) {
           loading="lazy"
         />
       </div>
-
       <p className="hidden lg:block absolute top-6 right-6 text-lg font-semibold text-slate-200">
         {translatedCategory}
       </p>
