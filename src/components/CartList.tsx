@@ -16,7 +16,10 @@ export default function CartList({ initialItems }: Props) {
     const [cartItems, setCartItems] = useState<Product[]>(initialItems);
     const pathname = usePathname();
     const isEnglish = pathname.startsWith("/en")
-    const t = !isEnglish ? useTranslations("ProductCard") : (key:string) => key;
+    const translationsHook = useTranslations("ProductCard");
+
+    const t = (key: string) => isEnglish ? key : translationsHook(key as any);
+
     const tCart = useTranslations("Cart");
 
     useEffect(() => {

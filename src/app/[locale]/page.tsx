@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: { params: Params }) {
     }
 } 
 
-export default async function Home({ params }: { params}) {
+export default async function Home({ params }: { params: Params}) {
     const { locale } = await params;
 
     const t = await getTranslations({ locale, namespace: "HomePage"});
