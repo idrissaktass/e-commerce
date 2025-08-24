@@ -11,8 +11,7 @@ type Params = {
 };
 
 export async function generateMetadata({ params }: { params: Params }) {
-    const resolvedParams = await params;
-    const locale = resolvedParams.locale;
+    const locale = params.locale;
     const isEnglish = locale === "en";
 
     const tProduct = !isEnglish ? await getTranslations({ locale, namespace: "ProductCard"}):(key:string) => key;
