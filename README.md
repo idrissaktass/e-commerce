@@ -6,7 +6,7 @@ Main features:
 - Translation (English & Turkish) with next-intl
 - Shopping cart management
 - Product listng & detail page
-- Responsive YI with TailwindCSS
+- Responsive UI with TailwindCSS
 - Home page product slider with Swiper.js
 - SEO-friendly metadata
 - ISR for pages (revalidated every 60 seconds)
