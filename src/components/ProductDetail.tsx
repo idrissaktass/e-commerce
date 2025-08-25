@@ -18,7 +18,6 @@ export default function ProductDetail({product}: ProductDetailProps) {
     const isEnglish = pathname.startsWith("/en")
 
     const translationsHook = useTranslations("ProductCard");
-
     const t = (key: string) => isEnglish ? key : translationsHook(key);
 
     const translatedTitle = useMemo(() => {

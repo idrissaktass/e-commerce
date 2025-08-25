@@ -46,7 +46,6 @@ export default async function Home({ params }: { params: Promise<Params> }) {
     const resolvedParams = await params;
     const locale = resolvedParams.locale;
 
-
     const t = await getTranslations({ locale, namespace: "HomePage"});
     const posts = await getProducts();
 

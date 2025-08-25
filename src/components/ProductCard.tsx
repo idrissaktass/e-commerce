@@ -19,17 +19,15 @@ export type Product = {
 }
 
 type ProductCardProps = {
-  product: Product;
-  isHome?: boolean; // 🔑 optional prop
+    product: Product;
+    isHome?: boolean;
 };
-
 
 export default function ProductCard({product}: ProductCardProps) {
     const pathname = usePathname();
     const isEnglish = pathname.startsWith("/en")
 
     const translationsHook = useTranslations("ProductCard");
-
     const t = (key: string) => isEnglish ? key : translationsHook(key);
 
     const translatedTitle = useMemo(() => {
