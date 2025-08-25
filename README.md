@@ -22,8 +22,7 @@ Main features:
 
 ## Setup & Installation
 ### 1- Clone the repo
-git clone https://github.com/idrissaktass/e-commerce.git
-cd myshop
+git clone https://github.com/idrissaktass/e-commerce.git - cd e-commerce
 ### 2- Install dependencies
 npm install or yarn install
 ### 3- Run the development server
