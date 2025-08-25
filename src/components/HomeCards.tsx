@@ -59,7 +59,7 @@ export default function HomeCards({ product, isHome }: ProductCardProps) {
             loading="lazy"
           />
         </div>
-        <p className="text-base sm:text-lg md:text-xl mb-4 text-slate-300"> {isEnglish ? product.description : translatedDesc}</p>
+        <p className="text-base sm:text-lg md:text-xl mb-4 text-slate-300 line-clamp-5 md:line-clamp-none"> {isEnglish ? product.description : translatedDesc}</p>
         {/* <p className="text-2xl font-bold text-green-400">{`$${product.price}`}</p> */}
         <Link
         href={`/products/${product.id}`}
