@@ -19,7 +19,6 @@ export default function CartList({ initialItems }: Props) {
     const translationsHook = useTranslations("ProductCard");
 
     const t = (key: string) => isEnglish ? key : translationsHook(key);
-
     const tCart = useTranslations("Cart");
 
     useEffect(() => {
